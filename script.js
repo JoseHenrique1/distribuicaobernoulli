@@ -14,6 +14,8 @@ function handleLoadGraphic(sample, success) {
             labels: ['Sucesso', 'Fracasso'],    
             datasets: [{
                 label: '# of Votes',
+                borderColor: '#ffffff',
+                backgroundColor: ['#38b010', '#ff4000'],
                 data: [ success/sample, (sample - success)/sample],
                 borderWidth: 1
             }],
