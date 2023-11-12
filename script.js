@@ -1,20 +1,42 @@
-const ctx = document.getElementById('chart');
-      
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 4],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+let ctx = document.getElementById('chart');
+
+function handleLoadGraphic(sample, success) {
+    ctx.remove();
+    ctx = document.createElement('canvas');
+    ctx.setAttribute("id", "chart");
+    document.querySelector("#divchart").appendChild(ctx);
+    ctx = document.querySelector("#chart");
+    
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sucesso', 'Fracasso'],    
+            datasets: [{
+                label: '# of Votes',
+                data: [ success/sample, (sample - success)/sample],
+                borderWidth: 1
+            }],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
         }
-    }
-});
+    });
+}
+
+function refreshCanva() {
+    
+}
+
+let form = document.querySelector("form");
+form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    let success = Number(e.target.sucesso.value);
+    let sample = Number(e.target.amostral.value);
+    
+    handleLoadGraphic(sample, success);
+})
