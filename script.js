@@ -39,6 +39,17 @@ form.addEventListener("submit", (e)=>{
     e.preventDefault()
     let success = Number(e.target.sucesso.value);
     let sample = Number(e.target.amostral.value);
-    
-    handleLoadGraphic(sample, success);
+    if (sample <= 0) {
+        alert("Espaço amostral não pode ter tamanho 0 ou ser negativo");
+    }
+    else if (success < 0) {
+        alert("A quantidade de sucesso nao pode ser negativa")
+    }
+    else if (success > sample) {
+        alert('A quantidade de sucesso não pode ser maior que o espaço amostral')
+    }
+    else {
+        handleLoadGraphic(sample, success);
+    }
+
 })
