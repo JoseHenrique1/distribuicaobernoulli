@@ -6,22 +6,7 @@
 
 
 
-## 💻 Pré-requisitos
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
-
-* Você instalou a versão mais recente de Node js.
-* Você possui o npm instalado.
-
-## 🚀 Instalando e usando o projeto
-
-Para instalar as dependências, siga esta etapa:
-
-```
-npm install
-```
-
-Depois abra o index.html no seu navegador.
 
 
 ## 🤝 Colaboradores
